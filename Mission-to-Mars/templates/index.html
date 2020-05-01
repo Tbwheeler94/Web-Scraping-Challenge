@@ -14,11 +14,13 @@
 </head>
 
 <body>
+  <!-- Top Card on Page-->
   <div class="container-fluid" style="padding:50px">
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
     </div>
+  <!--Latest Mars News, Featured Mars Image, Current Weather, Mars Facts-->
     <h2>Latest Mars News</h2>
     <h4> {{ mars_display.news_title }} </h4>
     <p> {{ mars_display.news_p }} </p>
@@ -35,29 +37,26 @@
             <br>
             <h3>Mars Facts</h3>
             <div>
-              {{mars_display.mars_df}}
+              {{mars_display.mars_df | safe}}
             </div>
         </div>
     </div>
     <br>
+    <!--Images of Mars Hemispheres-->
       <h2 style="text-align: center">Mars Hemispheres</h2>
       <hr>
     {% for item in mars_display.hemisphere_image_urls %}
     <div class="row">
-      <div class="col-6">
-        <img src="{{item.img_url}}" width="450" height="450"/>
-        <h3>{{item.title}}</h3>
-        <img src="{{item.img_url}}" width="450" height="450"/>
-        <h3>{{item.title}}</h3>
-      </div>
-      <div class="col-6">
-        <img src="{{item.img_url}}" width="450" height="450"/>
-        <h3>{{item.title}}</h3>
-        <img src="{{item.img_url}}" width="450" height="450"/>
-        <h3>{{item.title}}</h3>
+      <div class="col-md-5">
+        <div class="img-thumbnail">
+        <img src="{{item.img_url}}" width="735" height="735"/>
+        <div class="caption">
+          <h3>{{item.title}}</h3>
+        </div>
       </div>
     </div>
-    {% endfor %}
+  </div>
+  {% endfor %}
   </div>
 </body>
 

@@ -72,7 +72,7 @@ def scrape_info():
     #Clean data
     df = tables[0]
     df.columns = ['Description', 'Value']
-    df = df.to_html()
+    df = df.set_index(['Description']).to_html()
 
     ########################
     #Fifth Set of Scrapes###
